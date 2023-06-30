@@ -1,0 +1,22 @@
+#Developed by: Broseidon.Java
+
+talk-range: 20 # how far a player can chat in blocks
+megaphone-range: 30 # in blocks (value gets added to the default talk range!)
+
+show-distance: true # whether you want to show how far away the player is or not (true/false)
+allow-global-chat: true # whether you want to allow the players to use the global chat or not (true/false)
+
+item:
+  name: "&eMegaphone" #name of the item
+  lore: "&7Increases your talk range to &e%range% &7blocks!" #only one line lore!!
+
+lang: #you can use &7 for color codes or hex codes like &#FFFFFF
+  message-format: "&8[&5GC&8] &a%player% &8→ &7%message%"
+  usage: "&cInvalid usage.. Try &6%command%"
+  no-permission: "&cYou don't have permission to do that!"
+  reloaded: "&aReloaded config!"
+  only-players: "&cOnly players can use this command!"
+  get-megaphone: "&7Congrats! &aYou &7now have a megaphone."
+  not-online: "&cPlayer %player% is not online!"
+  give-megaphone: "&7You gave a megaphone to %player%!"
+  received-megaphone: "&7You received a megaphone from %player%!"

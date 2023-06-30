@@ -1,0 +1,15 @@
+name: ProximityChat
+version: '${project.version}'
+main: me.broseidon.proximitychat.ProximityChat
+api-version: '1.19'
+prefix: ProximityChat
+authors: [Broseidon308]
+commands:
+  gmp:
+    description: Chat using megaphone
+    permission: proximitychat.megaphone
+  gc:
+    description: Global chat
+  pc:
+    description: Reload Proximity Chat config
+    permission: proximitychat.reload
