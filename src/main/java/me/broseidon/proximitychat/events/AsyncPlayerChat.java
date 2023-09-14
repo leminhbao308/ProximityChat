@@ -26,23 +26,25 @@ public class AsyncPlayerChat implements Listener {
         event.setCancelled(true);
 
         Bukkit.getOnlinePlayers().forEach(target -> {
-            if(target.getUniqueId().equals(player.getUniqueId())) return;
+            if (target.getUniqueId().equals(player.getUniqueId())) return;
             int distance = (int) player.getLocation().distance(target.getLocation());
-            if(player.getInventory().getItemInMainHand().equals(megaphone)) {
-                if(distance <= configManager.getMegaphoneRange()) {
-                    if(configManager.showPlayerDistance()) {
-                        target.sendMessage(CustomColor.translate("&8[&e" + distance + "m&8] &a" + player.getName() + " &8→ &7" + event.getMessage()));
+            if (player.getInventory().getItemInMainHand().equals(megaphone)) {
+                if (configManager.getMegaphoneRange() == 0) {
+                    target.sendMessage(CustomColor.translate(configManager.getGlobalMessageFormat(player.getName(),event.getMessage())));
+                } else if (distance <= configManager.getMegaphoneRange()) {
+                    if (configManager.showPlayerDistance()) {
+                        target.sendMessage(CustomColor.translate(configManager.getProximityMessageFormat(distance, player.getName(), event.getMessage())));
                         return;
                     }
-                    target.sendMessage(CustomColor.translate("&a" + player.getName() + " &8→ &7" + event.getMessage()));
+                    target.sendMessage(CustomColor.translate(configManager.getProximityHideDistanceMessageFormat(player.getName(), event.getMessage())));
                 }
             } else {
-                if(distance <= configManager.getTalkRange()) {
-                    if(configManager.showPlayerDistance()) {
-                        target.sendMessage(CustomColor.translate("&8[&e" + distance + "m&8] &a" + player.getName() + " &8→ &7" + event.getMessage()));
+                if (distance <= configManager.getTalkRange()) {
+                    if (configManager.showPlayerDistance()) {
+                        target.sendMessage(CustomColor.translate(configManager.getProximityMessageFormat(distance, player.getName(), event.getMessage())));
                         return;
                     }
-                    target.sendMessage(CustomColor.translate("&a" + player.getName() + " &8→ &7" + event.getMessage()));
+                    target.sendMessage(CustomColor.translate(configManager.getProximityHideDistanceMessageFormat(player.getName(), event.getMessage())));
                 }
             }
         });

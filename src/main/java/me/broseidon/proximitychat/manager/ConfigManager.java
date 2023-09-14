@@ -38,8 +38,14 @@ public class ConfigManager {
     }
 
     /* LANGUAGE */
-    public String getMessageFormat() {
-        return this.configuration.getString("lang.message-format");
+    public String getGlobalMessageFormat(String player, String message) {
+        return this.configuration.getString("lang.global-message-format").replace("%player%",player).replace("%message%",message);
+    }
+    public String getProximityMessageFormat(int distance, String player, String message) {
+        return this.configuration.getString("lang.proximity-message-format").replace("%distance%",String.valueOf(distance)).replace("%player%",player).replace("%message%",message);
+    }
+    public String getProximityHideDistanceMessageFormat(String player, String message) {
+        return this.configuration.getString("lang.proximity-message-hide-distance-format").replace("%player%",player).replace("%message%",message);
     }
 
     public String getNoPerm() {

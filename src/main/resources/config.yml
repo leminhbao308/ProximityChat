@@ -7,11 +7,14 @@ show-distance: true # whether you want to show how far away the player is or not
 allow-global-chat: true # whether you want to allow the players to use the global chat or not (true/false)
 
 item:
+  material: "PAPER" #material of the item
   name: "&eMegaphone" #name of the item
   lore: "&7Increases your talk range to &e%range% &7blocks!" #only one line lore!!
 
 lang: #you can use &7 for color codes or hex codes like &#FFFFFF
-  message-format: "&8[&5GC&8] &a%player% &8→ &7%message%"
+  global-message-format: "&8[&5GC&8] &a%player% &8→ &7%message%"
+  proximity-message-format: "&8[&5%distance%&8] &a%player% &8→ &7%message%"
+  proximity-message-hide-distance-format: "&a%player% &8→ &7%message%"
   usage: "&cInvalid usage.. Try &6%command%"
   no-permission: "&cYou don't have permission to do that!"
   reloaded: "&aReloaded config!"
